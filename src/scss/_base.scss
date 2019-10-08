@@ -1,0 +1,121 @@
+// Base: contained within this file are all your resets, variables, mixins, typografi and any utility classes.
+
+// CSS-RESET
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+// HTML5 display-role reset for older browsers 
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 1.2em;
+    line-height: 1.6em;
+}
+  
+code {
+font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+
+// VARIABLES
+$nav-color: #636dca;
+$primary-color: #975CE6;
+$secondary-color: #636DCA;
+$white-bg: #fff;
+
+// MIXINS
+@mixin box-shadow($prop) {
+    -webkit-box-shadow: $prop;
+    -moz-box-shadow: $prop;
+    box-shadow: $prop;
+}
+@mixin transform($prop) {
+    -webkit-transform: $prop;
+    -ms-transform: $prop;
+    transform: $prop;
+}
+@mixin link-style--hover($underline: false) {
+    cursor: pointer;
+    color: darken($nav-color, 20%);
+
+    @if $underline {
+        text-decoration: underline;
+    }
+}
+
+/* 
+    **TYPOGRAPHY
+*/
+%link-style {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+
+.nav_wrapper {
+    color: $nav-color;
+    font-weight: bold;
+    font-size: 1.3rem;
+    a {
+        @extend %link-style;
+        text-transform: uppercase;
+        &:hover {
+            @include link-style--hover($underline: false)
+        }
+    }
+}
+#showMenu {
+    color: $nav-color;
+    font-size: 2.7em;
+        &:hover {
+            @include link-style--hover($underline: false)
+        }
+}
+.closeMenu:hover {
+    @include link-style--hover($underline: false);
+}
+
+.content--section .text_content {
+    color: $secondary-color;
+    h3 {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+}
+
+.cta_content .text_content {
+    color: $primary-color;
+    h1 {
+        font-weight: 700;
+        font-size: 3rem;
+        margin-bottom: 30px;
+        line-height: 1;
+    }
+}
+
+.bold_text {
+    font-weight: bold;
+}
+
+.footer_wrapper {
+    color: $nav-color;
+    section ul li {
+        list-style-type: none;
+        a {
+            @extend %link-style;
+            &:hover {
+                @include link-style--hover($underline: true)
+            }
+        }
+    }
+}

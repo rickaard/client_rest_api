@@ -1,0 +1,38 @@
+// Components: anything reusable such as buttons, navbars, cards etc.
+
+.header_wrapper.box-shadow {
+    @include box-shadow(0 3px 12px 0 rgba(0,0,0,0.05));
+}
+
+.arrow_svg svg line {
+    stroke: #636DCA;
+    stroke-width: 1;
+}
+
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    padding: 6px 12px;
+    text-transform: uppercase;
+    margin: 30px 0;
+    text-align: center;
+}
+
+.btn-cta {
+    background-color: #822E81;
+    color: #fff;
+    width: 50%;
+    border-radius: 31px;
+    font-weight: 800;
+    &:hover {
+        background-color: lighten(#822E81, 20%);
+        cursor: pointer;
+    }
+    &:active {
+        @include transform(translateY(2px));
+    }
+}
+.logo_wrapper img:hover {
+    transform: rotate(360deg);
+    transition: transform 1s;
+}
