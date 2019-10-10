@@ -6,11 +6,20 @@
     flex-direction: column;
 }
 
-.table-content_wrapper {
+table {
+    width: 90%;
+    border-collapse: collapse;
+    max-width: 1000px;
     margin: 0 auto;
-    width: 100%;
-    max-width: 800px;
-    table {
-        width: 100%;
+
+    thead {
+        font-weight: 600;
     }
+    tr {
+        border-bottom: 1px solid #e3dfdf;
+        th, td {
+            padding: .4em 0;
+          }
+    }
+
 }

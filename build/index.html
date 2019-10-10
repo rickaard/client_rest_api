@@ -16,7 +16,7 @@
         <header>
             <h1>Moment 5 - Webbtjänster</h1>
         </header>
-        
+
         <main>
             <div class="table-content_wrapper flex_column">
                 <h2>Kurser jag har läst:</h2>
@@ -32,29 +32,62 @@
                     <tbody id="fetch_output"></tbody>
                 </table>
             </div>
-            <div class="form_wrapper">
-                <form>
-                    <div class="input_wrapper">
-                        <label for="course_code">Kurskod:</label>
-                        <input type="text" id="course_code" placeholder="T.ex. DT057G..">
-                    </div>
-                    <div class="input_wrapper">
-                        <label for="course_name">Kursnamn:</label>
-                        <input type="text" id="course_name" placeholder="T.ex. Webbutveckling I...">
-                    </div>
-                    <div class="input_wrapper">
-                        <label for="course_progress">Progression:</label>
-                        <input type="text" id="course_progress" placeholder="T.ex. A / B..">
-                    </div>
-                    <div class="input_wrapper">
-                        <label for="course_syllabus">Kursplan:</label>
-                        <input type="text" id="course_syllabus" placeholder="Länk till kursplanen..">
-                    </div>
-                    <div class="input_wrapper">
-                        <input type="submit" class="btn btn-success" value="Lägg till kurs">
-                    </div>
-                </form>
+            <div class="add-modal">
+                <div class="form_wrapper add-form">
+                    <span class="close">&times;</span>
+                    <form id="add-course-form">
+                        <div class="input_wrapper">
+                            <label for="course_code">Kurskod:</label>
+                            <input type="text" id="course_code" placeholder="T.ex. DT057G.." required>
+                        </div>
+                        <div class="input_wrapper">
+                            <label for="course_name">Kursnamn:</label>
+                            <input type="text" id="course_name" placeholder="T.ex. Webbutveckling I..." required>
+                        </div>
+                        <div class="input_wrapper">
+                            <label for="course_progress">Progression:</label>
+                            <input type="text" id="course_progress" placeholder="T.ex. A / B.." required>
+                        </div>
+                        <div class="input_wrapper">
+                            <label for="course_syllabus">Kursplan:</label>
+                            <input type="text" id="course_syllabus" placeholder="Länk till kursplanen.." required>
+                        </div>
+                        <div class="input_wrapper">
+                            <input type="submit" id="submitBtn" class="btn btn-success" value="Lägg till kurs" required>
+                        </div>
+                    </form>
+                </div>
             </div>
+            <div class="edit-modal">
+                <div class="form_wrapper edit-form">
+                    <span class="close">&times;</span>
+                    <form id="edit-course-form">
+                        <div class="input_wrapper">
+                            <label for="course_code">Kurskod:</label>
+                            <input type="text" id="course_code" required>
+                        </div>
+                        <div class="input_wrapper">
+                            <label for="course_name">Kursnamn:</label>
+                            <input type="text" id="course_name" required>
+                        </div>
+                        <div class="input_wrapper">
+                            <label for="course_progress">Progression:</label>
+                            <input type="text" id="course_progress" required>
+                        </div>
+                        <div class="input_wrapper">
+                            <label for="course_syllabus">Kursplan:</label>
+                            <input type="text" id="course_syllabus" required>
+                        </div>
+                        <div class="input_wrapper">
+                            <input type="hidden" id="course_id">
+                            <input type="submit" id="submitBtn" class="btn btn-success" value="Lägg till kurs" required>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <button id="add-modal-btn">+</button>
+
         </main>
 
 
