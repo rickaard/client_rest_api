@@ -6,6 +6,20 @@
     flex-direction: column;
 }
 
+header {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    padding: .8em;
+    margin-bottom: 60px;
+    color: #fff;
+    border-bottom: 2px solid #000;
+    background: linear-gradient(90deg, rgb(84, 21, 156),rgb(132, 51, 77));
+    h1 {
+        margin: auto;
+    }
+}
+
 table {
     width: 90%;
     border-collapse: collapse;
@@ -14,6 +28,16 @@ table {
 
     thead {
         font-weight: 600;
+    }
+    tbody {
+        i.fas {
+            visibility: hidden;
+          }
+    } tr:hover  {
+        border-color: #000;
+        i.fas {
+            visibility: visible;
+        }
     }
     tr {
         border-bottom: 1px solid #e3dfdf;
