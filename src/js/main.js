@@ -14,7 +14,7 @@ const closeModalBtns = document.querySelectorAll('.close');
 
 
 // API URL
-const url = 'http://localhost/api/index.php/courses/';
+const url = 'http://rickaard.se/webbutveckling/webbutveckling3/moment5/api/index.php/courses/';
 
 // Call fetch function when DOM is finnished loading the DOM tree 
 window.addEventListener('DOMContentLoaded', fetchContent);
