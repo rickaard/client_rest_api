@@ -6,6 +6,10 @@
     flex-direction: column;
 }
 
+main {
+    margin-bottom: 120px;
+}
+
 header {
     display: flex;
     width: 100%;
@@ -42,8 +46,13 @@ table {
     tr {
         border-bottom: 1px solid #e3dfdf;
         th, td {
-            padding: .4em 0;
+            padding: .4em
           }
     }
+}
 
+@media screen and (max-width: 630px) {
+    table {
+        width: 100%;
+    }
 }

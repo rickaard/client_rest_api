@@ -33,6 +33,7 @@ closeModalBtns.forEach(element => {
     })
 })
 
+// If press outside of the modal -> close it
 window.onclick = function(event) {
     if (event.target == addModalEl || event.target == editModalEl) {
         addModalEl.style.display = "none";
@@ -41,6 +42,7 @@ window.onclick = function(event) {
   }
 
 // Fetch content (the courses)
+// And display it in the table
 function fetchContent()  {
     fetch(url)
     .then(response => response.json())
@@ -53,7 +55,7 @@ function fetchContent()  {
                 <td class="course-progress">${item.course_progress}</td>
                 <td class="course-syllabus"><a target="_blank" href="${item.course_syllabus}">Webblänk</a></td>
                 <td class="course-delete"><button id="${item.id}" class="btn btn-small btn-warning" onClick="deleteCourse(${item.id})"><i class="fas fa-trash-alt"></i></button></td>
-                <td class="course-delete"><button class="btn btn-small btn-warning" onClick="editModal('${item.course_code}', '${item.course_name}', '${item.course_progress}', '${item.course_syllabus}', ${item.id})"><i class="fas fa-edit"></i></button></td>
+                <td class="course-edit"><button class="btn btn-small btn-sucess" onClick="editModal('${item.course_code}', '${item.course_name}', '${item.course_progress}', '${item.course_syllabus}', ${item.id})"><i class="fas fa-edit"></i></button></td>
             </tr>
             `
         }).join("");
@@ -108,7 +110,7 @@ function addCourse (event) {
     .then(data => {
         fetchContent(); // Fetching all the courses again when a new course is added
         formEl.reset(); // Resets the input fields in the form
-        addModalEl.style.display = 'none';
+        addModalEl.style.display = 'none'; // Hide the modal again
     })
     .catch(err => console.log(err))
 }
@@ -131,8 +133,6 @@ function editCourse(event) {
     
     let jsonStr = convertToJson(document.querySelector('#edit-course-form > div > #course_code').value, document.querySelector('#edit-course-form > div > #course_name').value, document.querySelector('#edit-course-form > div > #course_progress').value, document.querySelector('#edit-course-form > div > #course_syllabus').value, document.querySelector('#edit-course-form > div > #course_id').value);
 
-    console.log(jsonStr);
-
     fetch(url, {
         method: 'PUT',
         header: {
@@ -142,9 +142,8 @@ function editCourse(event) {
     })
     .then(resp => resp.json())
     .then(data => {
-        console.log(data);
-        fetchContent();
-        editModalEl.style.display = 'none';
+        fetchContent(); // Fetch the content again to re-display the new updated data
+        editModalEl.style.display = 'none'; // Hide the edit modal
     })
 }
 
